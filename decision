@@ -1,0 +1,32 @@
+import datetime
+
+# Function to determine which fruit is in season
+def suggest_fruit():
+    # Get current month
+    current_month = datetime.datetime.now().month
+
+    # Fruit suggestion based on month
+    fruits_by_season = {
+        'Winter': ['Citrus', 'Pomegranate', 'Kiwi', 'Apple'],
+        'Spring': ['Strawberries', 'Apricots', 'Mangoes', 'Cherries'],
+        'Summer': ['Watermelon', 'Peaches', 'Berries', 'Plums'],
+        'Fall': ['Apples', 'Pears', 'Grapes', 'Figs']
+    }
+
+    # Determine season based on month
+    if current_month in [12, 1, 2]:
+        season = 'Winter'
+    elif current_month in [3, 4, 5]:
+        season = 'Spring'
+    elif current_month in [6, 7, 8]:
+        season = 'Summer'
+    else:
+        season = 'Fall'
+
+    # Suggest fruits for the current season
+    fruits = fruits_by_season.get(season, [])
+    print(f"Based on the current season ({season}), you should eat the following fruits: {', '.join(fruits)}.")
+
+# Call the function to get the suggestion
+if __name__ == "__main__":
+    suggest_fruit()
